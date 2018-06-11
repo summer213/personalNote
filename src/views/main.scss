@@ -1,0 +1,28 @@
+html{
+    width: 750px;
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#app{
+    height: 100%;
+}
+.main{
+    height: 100%;
+}
+.el-header{
+    background: #2a303c;
+}
+.el-container{
+    height: 100%;
+}
+.el-main{
+    height: 100%;;
+}
+// 导航菜单样式
+.el-menu--horizontal{
+    height: 70px !important;
+}
