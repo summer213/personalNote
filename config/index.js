@@ -12,8 +12,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable: {
+        '/api/**': {
+            target: 'http://localhost:3000',
+            // target: 'http://172.16.0.152',
+            // target: 'http://eolinker.ops.e-dewin.com/index.php/apiManagementPro/Mock/simple/HhtpahX356a192b7913b04c54574d18c28d46e6395428ab?uri=',
+            //target: 'http://frontend.lease.dev.e-dewin.com',
+            pathRewrite: { '^/api': '' },
+            changeOrigin: true,
+            secure: false
+        }
+    },
     // Various Dev Server settings
     host: ip, // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

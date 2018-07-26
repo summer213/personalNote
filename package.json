@@ -14,7 +14,15 @@
     "vue": "^2.5.2",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "mongoose": "^5.0.17",
+    "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
