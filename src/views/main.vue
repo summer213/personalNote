@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     onEditorChange(event) {
-      console.log('onEditorChange')
+      console.log('123123123')
     }
   },
   mounted() {
