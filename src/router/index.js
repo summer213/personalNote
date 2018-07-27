@@ -9,7 +9,21 @@ export default new Router({
     {
       path: '/',
       name: 'main',
-      component: Main
+      component: Main,
+      redirect:'/home',
+      children: [{
+        path: 'home',
+        title: '首页',
+        name: 'notelist',
+        component: () =>
+          import ('@/views/components/notelist.vue')
+      },{
+        path: 'addNote',
+        title: '编辑',
+        name: 'richedit',
+        component: () =>
+          import ('@/views/components/richEdit.vue')
+      }]
     }
   ]
 })

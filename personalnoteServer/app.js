@@ -9,7 +9,10 @@ var ejs = require('ejs');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+// 顶部菜单分类
 var menu = require('./routes/menu');
+// note列表
+var note = require('./routes/note');
 
 var app = express();
 
@@ -30,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/menus', menu);
+app.use('/note', note);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
