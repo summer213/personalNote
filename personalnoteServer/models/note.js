@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 // 定义一个模型
 var note = new Schema({
-  "deep" : String,
-  "name" : String,
-  "class" : String
+  "title" : String,
+  "content" : String,
+  "desc" : String
 });
 // 默认匿名输出
 // 定义一个Goods模型，基于模型可调用api方法

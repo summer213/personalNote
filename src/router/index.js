@@ -19,10 +19,22 @@ export default new Router({
           import ('@/views/components/notelist.vue')
       },{
         path: 'addNote',
-        title: '编辑',
-        name: 'richedit',
+        title: '新增',
+        name: 'addNote',
         component: () =>
-          import ('@/views/components/richEdit.vue')
+          import ('@/views/components/addNote.vue')
+      },{
+        path: 'editNote',
+        title: '编辑',
+        name: 'editNote',
+        component: () =>
+          import ('@/views/components/editNote.vue')
+      },{
+        path: 'noteDetail',
+        title: '详情',
+        name: 'noteDetail',
+        component: () =>
+          import ('@/views/components/noteDetail.vue')
       }]
     }
   ]

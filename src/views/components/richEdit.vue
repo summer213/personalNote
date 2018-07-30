@@ -1,3 +1,4 @@
+
 <template>
   <div>
       <!-- <el-main> -->
@@ -22,12 +23,16 @@ import 'tinymce/plugins/contextmenu'
 import 'tinymce/plugins/wordcount'
 import 'tinymce/plugins/colorpicker'
 import 'tinymce/plugins/textcolor'
+import 'tinymce/plugins/preview'
 // import Editor from '@tinymce/tinymce-vue'
 export default {
     name: 'text-editor',
+    props: {
+        content: String
+    },
     data () {
         return {
-            spinShow: true
+            spinShow: true,
         };
     },
     methods: {
@@ -46,7 +51,7 @@ export default {
                     images_upload_handler : this.images_upload_handler ,
                     skin_url: '/static/tinymce/skins/lightgray',
                     menubar: 'edit insert view format table tools',
-                    plugins: ['link lists image code table colorpicker textcolor wordcount contextmenu'
+                    plugins: ['link lists image code table colorpicker textcolor preview wordcount contextmenu'
                     ],
                     toolbar1: ' newnote print preview | undo redo | insert | styleselect | forecolor backcolor bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image emoticons media codesample',
                     autosave_interval: '20s',
@@ -56,11 +61,21 @@ export default {
                         borderCollapse: 'collapse'
                     },
                     setup: function (editor) {
+                        let that = this;
                         editor.on('init', function (e) {
                             vm.spinShow = false;
-                            if (localStorage.editorContent) {
-                                tinymce.get('tinymceEditer').setContent(localStorage.editorContent);
-                            }
+                            // if (localStorage.editorContent) {
+                                // 初始化，从缓存中读内容
+                                // tinymce.get('tinymceEditer').setContent(localStorage.editorContent);
+                                // 设置初始内容为空
+                                setTimeout(()=> {
+                                    if(vm.content){
+                                        tinymce.get('tinymceEditer').setContent(vm.content);
+                                    } else {
+                                        tinymce.get('tinymceEditer').setContent('');
+                                    }
+                                },1000)
+                            // }
                         });
                         editor.on('keydown', function (e) {
                             localStorage.editorContent = tinymce.get('tinymceEditer').getContent();
@@ -82,16 +97,10 @@ export default {
             // }).catch(res => {
             //     failure('error')
             // })
-        },
-        getMenu() {
-            this.request('getMenue', {}, true).then(res => {
-                console.log(res);
-            })
         }
     },
     mounted () {
         this.init();
-        this.getMenu();
     },
     destroyed () {
         tinymce.get('tinymceEditer').destroy();

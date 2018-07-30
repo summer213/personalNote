@@ -1,6 +1,10 @@
 
 <style>
   @import './main.scss';
+    .index{
+        min-height: 100%;
+        background: url('../assets/bg.jpg') repeat;
+    }
     .list-con {
         padding: 0 20px;
     }
@@ -13,6 +17,7 @@
         float: right;
         margin-top: 15px;
         cursor: pointer;
+        outline-style: none;
     }
 </style>
 <template>
@@ -60,7 +65,6 @@ export default {
     methods: {
         getMenu() {
             this.request('getMenue', {}, true).then(res => {
-                console.log(res);
             })
         },
         toPage(page) {

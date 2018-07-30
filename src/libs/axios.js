@@ -8,7 +8,8 @@ const config = {
   timeout: 30000, //超过两秒的请求请用微服务来处理
   withCredentials: true, //是否允许跨域
   headers: {
-    'Content-Type': 'charset=utf-8',
+    // 'Content-Type': 'charset=utf-8',
+    'Accept': "application/json",
     'X-Requested-With': 'XMLHttpRequest',
     "type": "web",
   },
