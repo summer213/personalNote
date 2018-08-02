@@ -1,3 +1,5 @@
+var util = require('../public/util.js');
+
 var express = require('express');
 var router = express.Router();
 
@@ -19,7 +21,6 @@ mongoose.connection.on('disconnected', function(){
 });
 
 // 访问 note二级目录
-
 router.get('/list', function(req, res, next) {
   // 通过模型查询
   // 第一个是查找参数，第二个是回调
@@ -62,10 +63,13 @@ router.post('/create', function(req, res, next) {
   // 通过模型查询
   // 第一个是查找参数，第二个是回调
   req = req.body;
+  let date = new Date();
+  let createAt = util.DateFormat(Date.parse(date));
   let add_prams = {
     title: req.title,
     content: req.content,
-    desc: req.desc
+    desc: req.desc,
+    createAt: createAt
   }
   let params = {};
   let noteModel = Note.find(params);

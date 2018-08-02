@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var note = new Schema({
   "title" : String,
   "content" : String,
-  "desc" : String
+  "desc" : String,
+  "createAt" : String
 });
 // 默认匿名输出
 // 定义一个Goods模型，基于模型可调用api方法
